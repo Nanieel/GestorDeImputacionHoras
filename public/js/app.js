@@ -16,6 +16,10 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     templateUrl: 'partials/page2',
     controller: Page2Ctrl
   }).
+  when('/login', {
+    templateUrl: 'pages/login/login',
+    controller: LoginCtrl
+  }).
   otherwise({
     redirectTo: '/page1' // Si es una página diferente, redirecciona a página 1
   });

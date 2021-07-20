@@ -41,16 +41,19 @@ app.get('/', routes.index);
 // Esto para acceder a los archivos html
 
 app.get('/partials/:name', routes.partials);
+app.get('/pages/:path/:name', routes.pages);
 
 
 function getUsers(request,response){
 
-  console.log('request users',request)
-  response.status(200).json({users:[{name:'juli',password:'asdf'},{name:'dani',password:'qwer'}]})
+  console.log('request users',request.params)
+  //console.log('params',request.para)
+  //response.status(200).json({users:[{name:'juli',password:'asdf'},{name:'dani',password:'qwer'}]})
+  response.status(422).json({description:'no hay usuarios'})
+  return;
 }
 
-app.get('/users', getUsers);
-//app.post('/users', ...);
+app.get('/users/:status', getUsers);
 
 // Redireccionar todo lo demás a index.
 app.get('*', routes.index);
