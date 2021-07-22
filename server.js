@@ -4,6 +4,11 @@ var express = require('express'); // Express js
 var routes = require('./routes'); // Referenciando nuestra carpeta de rutas
 var engines = require('consolidate'); // Sirve para compilar el html
 var bodyparser = require('body-parser'); // Para que los responses sean en json
+var mysql = require('mysql'); // Conexion a la BBDD
+
+// Invocamos la conexion a la BD
+const connection = require('./database/db');
+const { name } = require('ejs');
 
 // Inicializamos el framework express
 
@@ -56,12 +61,17 @@ function getUsers(request,response){
   return;
 }
 function requestPass(request,response){
-
-  console.log('register user',request.body)
-  //console.log('params',request.para)
-  response.status(201).json()
-  //response.status(422).json({description:'no hay usuarios'})
-  return;
+  console.log('body',request.body)
+  const nombre = request.body.nombre;
+  const correo = request.body.correo
+  connection.query ('INSERT INTO usuario VALUES {nombre:nombre, correo:correo}'), async(error,results)=>{
+    if(error){
+      console.log(error);
+      response.status(422).json({description:'fallo en el insert'})
+    }else{
+      response.status(201).json({description:'insert ok'})
+    }
+  })
 }
 
 

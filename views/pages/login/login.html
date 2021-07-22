@@ -23,11 +23,11 @@
         </form>
 
         <!--Register-->
-        <form ng-click="printScope()" class="formulario__register">
+        <form ng-submit="formularioSolicitud()" class="formulario__register">
             <h2>Solicitud contraseña</h2>
-            <input type="text" ng-model="nombre" placeholder="Nombre completo">
-            <input type="text" ng-model="correo"placeholder="Correo Electronico">
-            <button ng-click="formularioSolicitud()" type="submit">Recuerdame</button>
+            <input type="text" ng-model="nombre" name="nombre" placeholder="Nombre completo">
+            <input type="text" ng-model="correo" name="correo" placeholder="Correo Electronico">
+            <button  type="submit">Recuerdame</button>
         </form>
     </div>
 </div>
