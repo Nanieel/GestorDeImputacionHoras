@@ -44,16 +44,27 @@ app.get('/partials/:name', routes.partials);
 app.get('/pages/:path/:name', routes.pages);
 
 
-function getUsers(request,response){
+app.get('/users/:status', getUsers);
+app.post('/users', requestPass);
 
+
+function getUsers(request,response){
   console.log('request users',request.params)
   //console.log('params',request.para)
-  //response.status(200).json({users:[{name:'juli',password:'asdf'},{name:'dani',password:'qwer'}]})
-  response.status(422).json({description:'no hay usuarios'})
+  response.status(200).json({users:[{name:'juli',password:'asdf'},{name:'dani',password:'qwer'}]})
+  //response.status(422).json({description:'no hay usuarios'})
+  return;
+}
+function requestPass(request,response){
+
+  console.log('register user',request.body)
+  //console.log('params',request.para)
+  response.status(201).json()
+  //response.status(422).json({description:'no hay usuarios'})
   return;
 }
 
-app.get('/users/:status', getUsers);
+
 
 // Redireccionar todo lo demás a index.
 app.get('*', routes.index);
