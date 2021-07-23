@@ -57,7 +57,11 @@ function LoginCtrl($scope, $http, $location, $routeParams) {
           timer:2500,
           ruta:''
         }).then(()=>{
-          window.location='/page2'
+          if(name!='Admin'){
+            window.location='/horas'
+          }else{
+          window.location='/admin'
+        }
         });
       console.log('Datos',response)
     })

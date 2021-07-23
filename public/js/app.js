@@ -8,14 +8,19 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
   // Definiendo rutas de frontend
 
   $routeProvider.
-  when('/page2', {
-    templateUrl: 'pages/page2/page2',
-    controller: Page2Ctrl
-  }).
   when('/login', {
     templateUrl: 'pages/login/login',
     controller: LoginCtrl
   }).
+  when('/admin', {
+    templateUrl: 'pages/admin/admin',
+    controller: AdminCtrl
+  }).
+  when('/horas', {
+    templateUrl: 'pages/horas/horas',
+    controller: HorasCtrl
+  }).
+
   otherwise({
     redirectTo: 'login' // Si es una página diferente, redirecciona a página 1
   });
