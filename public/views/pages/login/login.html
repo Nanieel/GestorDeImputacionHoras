@@ -1,0 +1,38 @@
+<main>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Olvido su contraseña?</h3>
+                    <p>solicite una nueva contraseña</p>
+                    <button id="btn__registrarse">Recuerdame</button>
+                </div>
+            </div>
+
+            <!--Formulario de Login y Reset-->
+            <div class="contenedor__login-register">
+                <!--Login-->
+                <form ng-submit="formularioLogin()"class="formulario__login">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" ng-model="email" name="email" autocomplete="off" placeholder="Correo Electronico">
+                    <input type="password" ng-model="password" name="password" autocomplete="off" placeholder="Contraseña">
+                    <button type="submit">Entrar</button>
+                    <p>{{respuesta}}</p>    
+                </form>
+
+                <!--Register-->
+                <form ng-submit="formularioSolicitud()" class="formulario__register">
+                    <h2>Solicitud contraseña</h2>
+                    <input type="text" ng-model="nombre" name="nombre" autocomplete="off" placeholder="Nombre completo">
+                    <input type="text" ng-model="correo" name="correo" autocomplete="off" placeholder="Correo Electronico">
+                    <button  type="submit">Recuerdame</button>
+                    <p>{{respuesta}}</p>
+                </form>
+                
+            </div>
+        </div>
+</main>
