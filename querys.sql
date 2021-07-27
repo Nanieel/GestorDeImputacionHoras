@@ -8,3 +8,6 @@ CREATE TABLE users (
     last_name varchar(35) NOT NULL,
     PRIMARY KEY (id)
 );
+
+INSERT INTO users (email, password, name, last_name)
+VALUES ('admin', 'admin', 'Admin' ,'Admin'); 
