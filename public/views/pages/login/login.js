@@ -58,7 +58,7 @@ function LoginCtrl($scope, $http, $location, $routeParams) {
           ruta:''
         }).then(()=>{
           if(name!='Admin'){
-            window.location='/horas'
+            window.location='/horas/'+response.data.id
           }else{
           window.location='/admin'
         }

@@ -16,7 +16,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     templateUrl: 'pages/admin/admin',
     controller: AdminCtrl
   }).
-  when('/horas', {
+  when('/horas/:id', {
     templateUrl: 'pages/horas/horas',
     controller: HorasCtrl
   }).

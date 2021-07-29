@@ -33,8 +33,8 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 // Configuración para response en json
-app.use(bodyparser.urlencoded({extended: false}));
-app.use(bodyparser.json());
+//app.use(bodyparser.urlencoded({extended: false}));
+app.use(bodyparser.json({extended: true}));
 
 // La carpeta public como librería estática
 
@@ -50,17 +50,14 @@ app.get('/partials/:name', routes.partials);
 app.get('/pages/:path/:name', routes.pages);
 
 
-app.get('/users/:status', getUsers);
 app.post('/users', requestPass);
 app.post('/users/login', loginUP);
+app.get('/horas/user', getUser);
+app.get('/horas/proyect', getProyects);
 
-function getUsers(request,response){
-  console.log('request users',request.params)
-  //console.log('params',request.para)
-  response.status(200).json({users:[{name:'juli',password:'asdf'},{name:'dani',password:'qwer'}]})
-  //response.status(422).json({description:'no hay usuarios'})
-  return;
-}
+
+
+
 function requestPass(request,response){
   console.log('body',request.body)
   const nombre = request.body.nombre;
@@ -91,12 +88,38 @@ function loginUP(request,response){
       }
       console.log(rows);
       response.status(201).json({
+        id:rows[0].id,
         name:rows[0].name,
         last_name:rows[0].last_name,
       })
       return;
     }
   })
+}
+// Sacar ususario logueado //
+function getUser(request,response){
+  console.log('user',request.query)
+  const id = request.query.id;
+  connection.query('SELECT * FROM users WHERE id=?',[id],async (error,rows)=>{
+    if(error){
+      console.log(error);
+      response.status(422).json({description:'Error de consulta'})
+      return;
+    }
+    console.log(rows);
+    response.status(201).json({
+    name:rows[0].name,
+    last_name:rows[0].last_name,
+    })
+    return;
+
+  })
+}
+
+// Sacar proyectos
+
+function getProyects(request,response){
+  console.log('list',reques.query)
 }
 
 // Redireccionar todo lo demás a index.
