@@ -1,0 +1,25 @@
+{
+  "name": "gestor-horas",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Daniel Salazar <danii46@hotmail.es>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Nanieel/GestorDeImputacionHoras",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "bootstrap": "3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-bootstrap": "^2.5.0"
+  }
+}

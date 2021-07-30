@@ -26,6 +26,7 @@ app.set('views', __dirname + '/public/views');
 // Utilizamos la carpeta node_modules como librería estática
 
 app.use(express.static(__dirname + '/node_modules/'));
+app.use(express.static(__dirname + '/bower_components/'));
 
 // Utilizamos ejs para poder compilar el html
 

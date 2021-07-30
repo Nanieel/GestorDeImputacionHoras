@@ -2,7 +2,7 @@
 
 // Definiendo módulo con sus depedencias
 
-angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.directives']).
+angular.module('myApp', ['ngRoute', 'myApp.filters', 'myApp.services', 'myApp.directives','ui.bootstrap']).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
   // Definiendo rutas de frontend
@@ -20,7 +20,10 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     templateUrl: 'pages/horas/horas',
     controller: HorasCtrl
   }).
-
+  when('/test', {
+    templateUrl: 'pages/test/test',
+    controller: TestCtrl
+  }).
   otherwise({
     redirectTo: 'login' // Si es una página diferente, redirecciona a página 1
   });

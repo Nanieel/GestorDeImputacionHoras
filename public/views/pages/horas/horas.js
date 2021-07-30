@@ -1,4 +1,4 @@
-const cons = require("consolidate");
+//const cons = require("consolidate");
 
 function HorasCtrl($scope, $http, $location, $routeParams) {
   console.log("controlador horas");
@@ -41,5 +41,6 @@ function HorasCtrl($scope, $http, $location, $routeParams) {
     console.log('lista',response)
   })
 
+  
 
 }
